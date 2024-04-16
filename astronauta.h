@@ -1,3 +1,6 @@
+#ifndef ASTRONAUTA_H
+#define ASTRONAUTA_H
+
 #include <string>
 using std::string;
 
@@ -8,10 +11,12 @@ private:
     int idade;
 
 public:
-    string getCPF();
     void setCPF(string cpf);
-    string getNome();
+    string getCPF();
     void setNome(string nome);
-    int getIdade();
+    string getNome();
     void setIdade(int idade);
+    int getIdade();
 };
+
+#endif
