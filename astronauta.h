@@ -1,22 +1,26 @@
 #ifndef ASTRONAUTA_H
 #define ASTRONAUTA_H
 
+#include "voo.h"
 #include <string>
-using std::string;
+#include <vector>
+
+class voo;
 
 class astronauta{
 private:
-    string cpf;
-    string nome;
+    std::string cpf;
+    std::string nome;
     int idade;
+    bool vivo;
+    std::vector<voo*> voos_que_participou;
 
 public:
-    void setCPF(string cpf);
-    string getCPF();
-    void setNome(string nome);
-    string getNome();
-    void setIdade(int idade);
+    astronauta(std::string cpf, std::string nome, int idade);
+    std::string getCPF();
+    std::string getNome();
     int getIdade();
+    bool getVivo();
 };
 
 #endif

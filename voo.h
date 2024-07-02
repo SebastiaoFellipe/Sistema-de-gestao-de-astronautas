@@ -3,15 +3,21 @@
 
 #include "astronauta.h"
 #include <vector>
+#include <string>
+
+class astronauta;
 
 class voo{
 private:
     int codigo;
-    std::vector<astronauta*> astronautas;
+    std::string status;
+    std::vector<astronauta*> lista_de_passageiros;
 
 public:
-    void setCodigo(int codigo);
+    voo(int codigo);
     int getCodigo();
+    void setStatus(std::string novoStatus);
+    std::string getStatus();
     void adicionarAstronauta(astronauta* astronauta);
     void exibir();
 };

@@ -1,20 +1,19 @@
 #include "astronauta.h"
 
-void astronauta::setCPF(string c){
-    cpf = c;
+astronauta::astronauta(std::string cpf, std::string nome, int idade){
+    this->cpf = cpf;
+    this->nome = nome;
+    this->idade = idade;
 }
-string astronauta::getCPF(){
+std::string astronauta::getCPF(){
     return cpf;
 }
-void astronauta::setNome(string n){
-    nome = n;
-}
-string astronauta::getNome(){
+std::string astronauta::getNome(){
     return nome;
-}
-void astronauta::setIdade(int i) {
-    idade = i;
 }
 int astronauta::getIdade() {
     return idade;
+}
+bool astronauta::getVivo(){
+    return vivo;
 }

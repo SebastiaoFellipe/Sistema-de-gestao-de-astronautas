@@ -1,25 +1,37 @@
-#include <iostream>
-using std::cin;
-using std::cout;
-using std::endl;
-#include <vector>
+#include "sistema.h"
 #include "astronauta.h"
 #include "voo.h"
 
-int main(){
-    std::vector<astronauta*> ListaAstronautas;
-    std::vector<voo*> ListaVoos;
-    ListaVoos.push_back(new voo());
-    ListaVoos[0]->setCodigo(13);
-    ListaAstronautas.push_back(new astronauta());
-    ListaVoos[0]->adicionarAstronauta(ListaAstronautas[0]);
-    ListaAstronautas[0]->setCPF("111.222.333-44");
-    ListaAstronautas[0]->setNome("Sebastião");
-    ListaAstronautas[0]->setIdade(20);
-    cout << "Astronauta 01" << endl;
-    cout << "CPF: " << ListaAstronautas[0]->getCPF() << endl;
-    cout << "Nome: " << ListaAstronautas[0]->getNome() << endl;
-    cout << "Idade: " << ListaAstronautas[0]->getIdade() << endl;
-    ListaVoos[0]->exibir();
-    return 0;
+#include <iostream>
+#include <iomanip>
+using std::cin; 
+using std::cout;
+using std::endl;
+
+void linhaDivisoria(){
+    for (int i = 0; i < 72; i++){
+        cout << "-";
+    } cout << endl;
+}
+
+void CadastrarAstronauta(std::vector<astronauta*>& Lista_de_Astronautas, std::string cpf, std::string nome, int idade){
+    Lista_de_Astronautas.push_back(new astronauta(cpf, nome, idade));
+}
+
+void listarAstronautas(std::vector<astronauta*>& Lista_de_Astronautas){
+    cout << std::setw(44) << "Lista de Astronautas" << endl;
+    linhaDivisoria();
+    cout << std::left << std::setw(16) << "CPF" << std::setw(50) << "|Nome" << "|Idade" << endl;
+    linhaDivisoria();
+    int countAstronautas = 0;
+    for (auto astronauta : Lista_de_Astronautas) {
+        cout << std::setw(16) << astronauta->getCPF() << "|" << std::setw(50) << astronauta->getNome() << "|" << astronauta->getIdade() << endl;
+        countAstronautas++;
+    }
+    if (countAstronautas==0){
+        cout << "Total: " << countAstronautas << endl;
+    } else {
+        linhaDivisoria();
+        cout << "Total: " << countAstronautas << endl;
+    }
 }
