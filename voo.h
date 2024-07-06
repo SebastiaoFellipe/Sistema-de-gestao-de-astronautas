@@ -5,20 +5,22 @@
 #include <vector>
 #include <string>
 
-class astronauta;
+class Astronauta;
 
-class voo{
+class Voo{
 private:
     int codigo;
     std::string status;
-    std::vector<astronauta*> lista_de_passageiros;
+    std::vector<Astronauta*> lista_de_passageiros;
 
 public:
-    voo(int codigo);
+    Voo(int codigo);
     int getCodigo();
     void setStatus(std::string novoStatus);
     std::string getStatus();
-    void adicionarAstronauta(astronauta* astronauta);
+    std::vector<Astronauta*> getListaPassageiros();
+    void removerAstronautaListaPassageiros(Astronauta* a);
+    void adicionarAstronauta(Astronauta* astronauta);
     void exibir();
 };
 

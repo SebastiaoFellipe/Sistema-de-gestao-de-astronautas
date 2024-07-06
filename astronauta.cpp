@@ -1,19 +1,37 @@
 #include "astronauta.h"
+#include <algorithm>
 
-astronauta::astronauta(std::string cpf, std::string nome, int idade){
-    this->cpf = cpf;
-    this->nome = nome;
-    this->idade = idade;
-}
-std::string astronauta::getCPF(){
+Astronauta::Astronauta(std::string cpf, std::string nome, int idade) : cpf(cpf), nome(nome), idade(idade), vivo(true), disponivel(true) {}
+
+std::string Astronauta::getCPF(){
     return cpf;
 }
-std::string astronauta::getNome(){
+std::string Astronauta::getNome(){
     return nome;
 }
-int astronauta::getIdade() {
+int Astronauta::getIdade() {
     return idade;
 }
-bool astronauta::getVivo(){
+bool Astronauta::getVivo(){
     return vivo;
 }
+void Astronauta::matarAstronauta(){
+    vivo = false;
+}
+bool Astronauta::getDisponivel(){
+    return disponivel;
+}
+void Astronauta::tornarDisponivel(){
+    disponivel = true;
+}
+void Astronauta::tornarIndisponivel(){
+    disponivel = false;
+}
+void Astronauta::adicionarVooAoAstronauta(Voo* voo) {
+    if (std::find(voos_que_participou.begin(), voos_que_participou.end(), voo)==voos_que_participou.end()) {
+        voos_que_participou.push_back(voo);
+    }
+}
+std::vector<Voo*> Astronauta::getVoosQueParticipou() {
+        return voos_que_participou;
+    }
